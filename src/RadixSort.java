@@ -5,7 +5,7 @@ public class RadixSort {
 
     public static String[] radix( String[] vals)
     {
-        int maxlength = -;
+        int maxlength = 0;
         for ( int a = 0; a < vals.length; a++)
         {
             if ( maxlength < vals[a].length()) // looks through the array and finds the longest string.
@@ -18,6 +18,7 @@ public class RadixSort {
         {
             buckets(vals, b); // calls the buckets method for the new sort.
         }
+
 
         return vals;
     }
@@ -36,7 +37,7 @@ public class RadixSort {
         {
             if ( position < vals[b].length())// checks to see if were at a valid position for each string
             {
-                Buckets[vals[b].chatAt(position)].add(vals[b]); // gets tje ascii value you of the position and places string accordingly
+                Buckets[vals[b].charAt(position)].add(vals[b]); // gets tje ascii value you of the position and places string accordingly
             }
             else {
                 Buckets[0].add(vals[b]); //if position not valid for the string places string in the "null" section
@@ -44,7 +45,7 @@ public class RadixSort {
         }
 
         int index = 0; // keeps track of the index of the vals array
-        for ( int  c = 0;  Buckets.length; c++) // going through each buckets
+        for ( int  c = 0; c < Buckets.length; c++) // going through each buckets
         {
             for ( int d = 0; d < Buckets[c].size(); d++)// going through each string inside the bucket
             {
@@ -52,6 +53,26 @@ public class RadixSort {
                 index++;
             }
         }
+
+
+    }
+
+    public static void printarray(String[] vals) {
+        for (int a = 0; a < vals.length; a++) {
+            if (a == vals.length - 1) { // checks for last element
+                System.out.println(vals[a]);
+            } else {
+                System.out.print(vals[a] + ", "); // makes strings separated with commas
+            }
+        }
+    }
+
+
+    public static void main(String[] args)
+    {
+        String[] vals = {"google", "gojo", "amazingly", "jogo", "luna", "pup", "solas", "solo", "pupperino", "amaterasu", "amazon", "puppy", "hydra", "amazonia", "vueltiao"};
+
+        printarray(radix(vals));
 
     }
 
