@@ -39,7 +39,17 @@ public class RadixSort {
                 Buckets[vals[b].chatAt(position)].add(vals[b]); // gets tje ascii value you of the position and places string accordingly
             }
             else {
-                Buckets[0].add(vals[b]); //if
+                Buckets[0].add(vals[b]); //if position not valid for the string places string in the "null" section
+            }
+        }
+
+        int index = 0; // keeps track of the index of the vals array
+        for ( int  c = 0;  Buckets.length; c++) // going through each buckets
+        {
+            for ( int d = 0; d < Buckets[c].size(); d++)// going through each string inside the bucket
+            {
+                vals[index]= Buckets[c].get(d); // places the strings in the new order into vals
+                index++;
             }
         }
 
