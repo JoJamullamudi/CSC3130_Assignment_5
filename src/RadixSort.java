@@ -38,6 +38,9 @@ public class RadixSort {
             {
                 Buckets[vals[b].chatAt(position)].add(vals[b]); // gets tje ascii value you of the position and places string accordingly
             }
+            else {
+                Buckets[0].add(vals[b]); //if
+            }
         }
 
     }
